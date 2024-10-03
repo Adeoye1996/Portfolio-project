@@ -1,15 +1,18 @@
-// backend/server.js
 const express = require('express');
 const connectDB = require('./config/db');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/authRoutes');
 const playlistRoutes = require('./routes/playlistRoutes');
+const cors = require('cors'); // Add this line
 
 // Load environment variables
 dotenv.config();
 
 // Initialize Express
 const app = express();
+
+// Use CORS middleware
+app.use(cors()); // Add this line
 
 // Connect to MongoDB
 connectDB();
